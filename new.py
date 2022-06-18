@@ -44,5 +44,21 @@ def total_binding_energy():
 
 total_binding_energy()
 
-# for objects at 
+def total_binding_energy_2(el2,sl2,rl2):
+    list_u = []
+    for i in range(len(el2)):
+        e = el2[i]
+        s = sl2[i]
+        r = rl2[i]
+        u = 4*e*((s/r)**(12) - (s/r)**(6))
+        #return(u)
+        list_u.append(u)
+        print(list_u)
+    total_u = sum(list_u)
+    print("total binding energy=",total_u,"J")
+
+total_binding_energy_2([1.65E-21,1.65E-21,1.65E-21],[3.41E-10,3.41E-10,3.41E-10],[6.82E-10,1E-10,3.41E-10])
+
+
+
 
