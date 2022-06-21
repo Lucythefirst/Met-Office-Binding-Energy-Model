@@ -1,16 +1,41 @@
-import rl
+from data import rl_1
 
-def total_binding_energy_6():
-    
+#Calculation of Binding Energy with varying distances between objects (r), but fixed sigma and epsilon values
+# This file imports values of r and uses classes to adjust the sigma and epsilon values
+# Different "object types" could represent different gas molecules 
+
+
+
+# e=1.65E-21
+# s=3.41E-10
+
+
+def total_binding_energy_u(e,s):
     list_u = []
-    for i in range(len(el)):
-        e = el[i]
-        s = sl[i]
-        r = rl[i]
+    for i in range(len(rl_1)):
+        r=rl_1[i]
+        if type(r) is str:
+            raise Exception(f"Sorry, the value{r}, with index {i}, is a string")
         u = 4*e*((s/r)**(12) - (s/r)**(6))
-        #return(u)
         list_u.append(u)
     total_u = sum(list_u)
-    print(total_u,"J for 6 objects")
+    print("total binding energy u=",total_u,"J")
 
-total_binding_energy_6()
+#Improvement option: add a test to check if r, distance between any pair of objects exceeds a certain value, and if so, discount the interaction
+
+class Object_type_1():
+    def get_u():
+        total_binding_energy_u(1.65E-21,3.41E-10)
+
+class Object_type_2():
+    def get_u():
+        total_binding_energy_u(1.62E-21,3.39E-10)
+
+
+system_1=Object_type_1
+system_2=Object_type_2
+
+
+
+system_1.get_u()
+system_2.get_u()
