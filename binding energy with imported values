@@ -2,7 +2,7 @@ from data import rl_1
 
 #Calculation of Binding Energy with varying distances between objects (r), but fixed sigma and epsilon values
 # This file imports values of r and uses classes to adjust the sigma and epsilon values
-# Different "object types" could represent different gas molecules 
+# Different "object types" could represent different molecules 
 
 
 
