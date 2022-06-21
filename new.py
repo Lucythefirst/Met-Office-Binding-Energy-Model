@@ -46,7 +46,7 @@ total_binding_energy()
 
 def total_binding_energy_2(el2,sl2,rl2):
     list_u = []
-    for i in range(len(el2)):
+    for i in range(len(el2)): 
         e = el2[i]
         s = sl2[i]
         r = rl2[i]
@@ -61,4 +61,24 @@ total_binding_energy_2([1.65E-21,1.65E-21,1.65E-21],[3.41E-10,3.41E-10,3.41E-10]
 
 
 
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.widgets import Slider
+
+
+sigma = 3.41E-10
+epsilon = 1.65E-21
+
+r = np.linspace(0.5E-10, 20.82E-10, 200) #giving the distance range
+u = 4*epsilon*((sigma/r)**(12) - (sigma/r)**(6))
+
+plt.plot(r,u)
+plt.xlim(0, 20E-10)
+plt.ylim(-20E-22,40E-22)
+plt.xlabel('separation of object pair')
+plt.ylabel('binding energy/J')
+plt.title("Binding Energy as a functin of separation of Object Pair 1  ", pad=20)
+
+
+plt.show()
 
